@@ -4,17 +4,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LocatioPopUpPage {
+public class LocatioPopUpPage extends BasicPage {
 	
-	private WebDriver driver;
+
+	public LocatioPopUpPage(WebDriver driver, WebDriverWait wdWait) {
+		super(driver, wdWait);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	JavascriptExecutor js = (JavascriptExecutor) driver; 
 	
-	public LocatioPopUpPage(WebDriver driver) {
-		this.driver = driver;
-	}
 	public WebElement getLocationButton() {
-		return driver.findElement(By.xpath("//*[@class='location-selector']"));
+			return driver.findElement(By.xpath("//*[@class='location-selector']"));
+	
+	}
+	
+	public boolean isLocationButtonDisplayed() {
+		try {
+			driver.findElement(By.xpath("//*[@class='location-selector']"));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	public WebElement getCloseElement() {
@@ -40,7 +55,10 @@ public class LocatioPopUpPage {
 	}
 	
 	public void openPopUpDialog() {
-		this.getLocationButton().click();
+		if(this.isLocationButtonDisplayed()) {
+			this.getLocationButton().click();
+		}
+	
 	}
 
 
