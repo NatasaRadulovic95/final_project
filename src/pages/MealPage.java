@@ -34,7 +34,7 @@ public class MealPage extends BasicPage{
 	}
 	
 	public WebElement getAddToFavoritesButton() {
-		return driver.findElement(By.id("item_153"));
+		return driver.findElement(By.id("item_119"));
 	}
 	
 	public void addToCard(String numberOfMeal) {

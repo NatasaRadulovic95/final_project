@@ -23,17 +23,14 @@ import pages.ProfilePage;
 
 public class ProfileTest extends BaseTest {
 
-	
-	
-	
 	@Test
 	public void editProfileTest() throws InterruptedException, AWTException {
-		
+
 		SoftAssert softAssert = new SoftAssert();
 		String photo = "";
-		
+
 		driver.get("http://demo.yo-meals.com/guest-user/login-form");
-		
+
 		locationPP.getCloseElement().click();
 		Thread.sleep(500);
 		loginPage.logIn("customer@dummyid.com", "12345678a");
@@ -45,18 +42,32 @@ public class ProfileTest extends BaseTest {
 		authorPage.logOutUser();
 		softAssert.assertTrue(notifiSP.getMesageText().contains("Logout Successfull!"));
 	}
-	
+
 	@Test
 	public void changeProfileImageTest() throws InterruptedException, IOException, AWTException {
 		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://demo.yo-meals.com/guest-user/login-form");
 		locationPP.getCloseElement().click();
 		Thread.sleep(500);
-		loginPage.logIn("customer@dummyid.com", "12345678a");
+		loginPage.logIn(username, password);
 		softAssert.assertTrue(notifiSP.getMesageText().contains("Login Successfull"));
 		driver.get("http://demo.yo-meals.com/member/profile");
 		String imgPath = new File("C:\\Users\\Info\\Desktop\\profilna_slika.jpg").getCanonicalPath();
 		profilePage.uploadPhoto(imgPath);
+
+//		otpremite profilnu sliku
+//		sliku iz images foldera
+//		s obzirom na to da se za otpremanje šalje apsolutna putanja do slike, a mi koristimo relativnu, moramo da pribavimo putanju na sledeći način
+//		String imgPath = new File("imagеs/slika.png").getCanonicalPath();
+//		Koristan link
+//		verifikujte da je prikazana poruka sa tekstom "Profile Image Uploaded Successfully"
+//		sačekajte da nestane obaveštenje
+//		obrišite profilnu sliku
+//		verifikujte da je prikazana poruka sa tekstom "Profile Image Deleted Successfully"
+//		sačekajte da nestane obaveštenje
+//		odjavite se sa sajta
+//		verifikujte da je prikazana poruka sa tekstom "Logout Successfull!"
+
 	}
 
 }
