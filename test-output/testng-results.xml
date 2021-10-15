@@ -2,26 +2,54 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="9285" started-at="2021-10-14T20:09:51 CEST" finished-at="2021-10-14T20:10:00 CEST">
+  <suite name="Default suite" duration-ms="18560" started-at="2021-10-15T20:13:43 CEST" finished-at="2021-10-15T20:14:02 CEST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="9285" started-at="2021-10-14T20:09:51 CEST" finished-at="2021-10-14T20:10:00 CEST">
-      <class name="tests.MealItemTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.MealItemTest@76f2b07d]" name="beforeMethod" is-config="true" duration-ms="3996" started-at="2021-10-14T20:09:51 CEST" finished-at="2021-10-14T20:09:55 CEST">
+    <test name="Default test" duration-ms="18560" started-at="2021-10-15T20:13:43 CEST" finished-at="2021-10-15T20:14:02 CEST">
+      <class name="tests.ProfileTest">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.ProfileTest@76f2b07d]" name="beforeMethod" is-config="true" duration-ms="4359" started-at="2021-10-15T20:13:43 CEST" finished-at="2021-10-15T20:13:47 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="clearCartTest()[pri:0, instance:tests.MealItemTest@76f2b07d]" name="clearCartTest" duration-ms="5222" started-at="2021-10-14T20:09:55 CEST" finished-at="2021-10-14T20:10:00 CEST">
-          <exception class="java.io.FileNotFoundException">
+        <test-method status="FAIL" signature="changeProfileImageTest()[pri:0, instance:tests.ProfileTest@76f2b07d]" name="changeProfileImageTest" duration-ms="13878" started-at="2021-10-15T20:13:47 CEST" finished-at="2021-10-15T20:14:01 CEST">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[data\Data.xlsx (The system cannot find the path specified)]]>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"}
+  (Session info: chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+System info: host: 'DESKTOP-3RPF1VE', ip: '192.168.0.14', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 93.0.4577.63 (ff5c0da2ec0ad..., userDataDir: C:\Users\Info\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:54217}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a4ea25cec5605db2ec62fc43f2d4133f
+*** Element info: {Using=xpath, value=//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.io.FileNotFoundException: data\Data.xlsx (The system cannot find the path specified)
-at java.io.FileInputStream.open0(Native Method)
-at java.io.FileInputStream.open(Unknown Source)
-at java.io.FileInputStream.<init>(Unknown Source)
-at tests.MealItemTest.clearCartTest(MealItemTest.java:58)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"}
+  (Session info: chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+System info: host: 'DESKTOP-3RPF1VE', ip: '192.168.0.14', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 93.0.4577.63 (ff5c0da2ec0ad..., userDataDir: C:\Users\Info\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:54217}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a4ea25cec5605db2ec62fc43f2d4133f
+*** Element info: {Using=xpath, value=//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at pages.NotificationSistemPage.getMessage(NotificationSistemPage.java:20)
+at tests.ProfileTest.changeProfileImageTest(ProfileTest.java:60)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -52,15 +80,22 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.io.FileNotFoundException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clearCartTest -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.MealItemTest@76f2b07d]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-10-14T20:10:00 CEST" finished-at="2021-10-14T20:10:00 CEST">
+        </test-method> <!-- changeProfileImageTest -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:tests.ProfileTest@76f2b07d]" name="afterMethod" is-config="true" duration-ms="254" started-at="2021-10-15T20:14:01 CEST" finished-at="2021-10-15T20:14:02 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=changeProfileImageTest status=FAILURE method=ProfileTest.changeProfileImageTest()[pri:0, instance:tests.ProfileTest@76f2b07d] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- tests.MealItemTest -->
+      </class> <!-- tests.ProfileTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

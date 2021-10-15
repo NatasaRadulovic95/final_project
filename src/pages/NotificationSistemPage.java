@@ -37,8 +37,8 @@ public class NotificationSistemPage extends BasicPage {
 	}
 	
 	public WebElement getMessageForSucefullyAddToCard() {
-		return driver.findElement(By.xpath("//*[@class='system_message alert alert--positioned-top-full alert--success']"));
-	}
+		return driver.findElement(By.xpath("//*[@class='content']"));
+	}											
 	public String getMesageText() {
 		return driver.findElement(By.xpath("//*[@class='div_msg']")).getText();
 	}
@@ -48,7 +48,7 @@ public class NotificationSistemPage extends BasicPage {
 		
 	}
 	
-	public WebElement getMessageAssToFavourites() {
+	public WebElement getMessagee() {
 		return driver.findElement(By.xpath("//*[@class='content']"));
 	}
 	

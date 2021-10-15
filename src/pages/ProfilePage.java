@@ -17,9 +17,11 @@ import com.sun.corba.se.spi.orbutil.fsm.Action;
 public class ProfilePage extends BasicPage {
 
 	private Helper helper;
+
 	public ProfilePage(WebDriver driver, WebDriverWait wdWait,Helper helper) {
 		super(driver, wdWait);
 		this.helper = new Helper();;
+
 		// TODO Auto-generated constructor stub
 	}
 
@@ -111,17 +113,16 @@ public class ProfilePage extends BasicPage {
 		return driver.findElement(By.xpath("//*[@class='remove']"));
 	}
 
-	public void uploadPhoto(String url) throws InterruptedException, AWTException {
-		
-		this.getProfileButton().click();
-		
-		this.getHoverAvatar();
-		this.getButtonForUpload().click();
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_ESCAPE);
-		robot.keyRelease(KeyEvent.VK_ESCAPE);
-		this.getButtonForUpload().sendKeys(url);
-
+	public void clickOnUploadAvatar() {
+		Actions action = new Actions(driver);
+		((Actions) action).moveToElement(driver.findElement(By.xpath("//*[@class='avatar']"))).perform();
+		getButtonForUpload().click();
+	}
+	public void uploadImage(String image) throws InterruptedException {
+		js.executeScript("arguments[0].click();", this.getButtonForUpload());
+		Thread.sleep(3000);
+		WebElement input = driver.findElement(By.xpath("//*[@id='form-upload']/input"));
+		input.sendKeys(image);
 	}
 	
 	public void removePhoto() {
@@ -132,22 +133,32 @@ public class ProfilePage extends BasicPage {
 	public void setInformations(String name, String lastName,
 			String address, String phone, String zipCode,String country, String state, String city) throws InterruptedException {
 		this.getFirstNameInput().clear();
+		
 		this.getFirstNameInput().sendKeys(name);
 		this.getLastNameInput().clear();
+		
 		this.getLastNameInput().sendKeys(lastName);
 		this.getAddressInput().clear();
+		
 		this.getAddressInput().sendKeys(address);
 		this.getPhoneInput().clear();
+		
 		this.getPhoneInput().sendKeys(phone);
 		this.getZipCode().clear();
+		
 		this.getZipCode().sendKeys(zipCode);
 		this.setDropDownCountry(country);
+		
 		Thread.sleep(500);
 		this.setDropDownState(state);
+		
 		Thread.sleep(500);
 		this.setDropDownCity(city);
+		
 		this.getSaveButton().click();
 		
 	}
+	
 	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
 }

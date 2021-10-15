@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -23,7 +24,7 @@ import pages.ProfilePage;
 
 public class ProfileTest extends BaseTest {
 
-	@Test
+//	@Test
 	public void editProfileTest() throws InterruptedException, AWTException {
 
 		SoftAssert softAssert = new SoftAssert();
@@ -53,15 +54,17 @@ public class ProfileTest extends BaseTest {
 		softAssert.assertTrue(notifiSP.getMesageText().contains("Login Successfull"));
 		driver.get("http://demo.yo-meals.com/member/profile");
 		String imgPath = new File("C:\\Users\\Info\\Desktop\\profilna_slika.jpg").getCanonicalPath();
-		profilePage.uploadPhoto(imgPath);
+		Thread.sleep(1000);
+		profilePage.uploadImage(imgPath);
+		softAssert.assertTrue(notifiSP.getMessagee().getText().contains("Profile Image Uploaded Successfully"));
+		wdWait.until(ExpectedConditions.invisibilityOf(notifiSP.getMessage()));
+		profilePage.removePhoto();
 
-//		otpremite profilnu sliku
-//		sliku iz images foldera
-//		s obzirom na to da se za otpremanje šalje apsolutna putanja do slike, a mi koristimo relativnu, moramo da pribavimo putanju na sledeći način
-//		String imgPath = new File("imagеs/slika.png").getCanonicalPath();
-//		Koristan link
-//		verifikujte da je prikazana poruka sa tekstom "Profile Image Uploaded Successfully"
-//		sačekajte da nestane obaveštenje
+
+
+
+
+
 //		obrišite profilnu sliku
 //		verifikujte da je prikazana poruka sa tekstom "Profile Image Deleted Successfully"
 //		sačekajte da nestane obaveštenje

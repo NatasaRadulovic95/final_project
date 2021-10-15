@@ -8,11 +8,17 @@ package tests;
 //okviru screenshots direktorijuma i zatvara sesiju drajvera
 //sve ostale test klase nasleđuju ovu klasu
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.FileHandler;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -37,12 +43,16 @@ abstract class BaseTest {
 	protected CartSummaryPage cartSummary;
 	protected NotificationSistemPage notifiSP;
 	protected Helper helper;
+	
 	protected String baseUrl = "https://demo.yo-meals.com/";
 	protected String loginPagee = "";
 	protected String profilPage = "";
 	
 	protected String username ="customer@dummyid.com";
 	protected String password = "12345678a";
+	
+	ITestResult result;
+	 
 	
 	@BeforeMethod
 	public void beforeMethod() {
@@ -65,9 +75,14 @@ abstract class BaseTest {
 	}
 	
 	@AfterMethod
-	public void afterMethod() throws InterruptedException {
-//		Thread.sleep(2000);
-//		driver.quit();
+	public void afterMethod(ITestResult result) throws InterruptedException {
+		
+		if(result.FAILURE == result.getStatus()) {
+			TakesScreenshot scrShot =((TakesScreenshot)driver);
+			File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+			
+			
+		}
 	}
 	
 }

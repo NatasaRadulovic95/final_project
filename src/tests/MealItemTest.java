@@ -16,7 +16,7 @@ import org.testng.asserts.SoftAssert;
 
 public class MealItemTest extends BaseTest {
 
-//	@Test
+	@Test
 	public void addMealToCardTest() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://demo.yo-meals.com/meal/lobster-shrimp-chicken-quesadilla-combo");
@@ -33,7 +33,7 @@ public class MealItemTest extends BaseTest {
 		
 	}
 	
-//	@Test
+	@Test
 	public void addMealToFavourite() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://demo.yo-meals.com/meal/lobster-shrimp-chicken-quesadilla-combo");
@@ -44,7 +44,7 @@ public class MealItemTest extends BaseTest {
 		loginPage.logIn(username, password);
 		driver.get("http://demo.yo-meals.com/meal/lobster-shrimp-chicken-quesadilla-combo");
 		mealPage.addToFavorites();
-		softAssert.assertTrue(notifiSP.getMessageAssToFavourites().getText().contains("Product has been added to your favorites."));
+		softAssert.assertTrue(notifiSP.getMessagee().getText().contains("Product has been added to your favorites."));
 	}
 
 	
@@ -54,19 +54,23 @@ public class MealItemTest extends BaseTest {
 		driver.get("http://demo.yo-meals.com/meals");
 		locationPP.getCloseElement().click();
 		locationPP.setLocationName("City Center - Albany");
-		File file = new File("data/Data.xlsx");
+		File file = new File("C:\\Users\\Info\\Desktop\\data\\Data.xlsx");
 		FileInputStream fis = new FileInputStream(file);
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sheetMeals= wb.getSheet("Meals");
-		locationPP.getCloseElement().click();
+//		locationPP.getCloseElement().click();
 		
-		
-		for (int i = 1; i <=6; i++) {
+		for (int i = 1; i <=5; i++) {
 			String meal = (sheetMeals.getRow(i).getCell(0).getStringCellValue());
-			mealPage.addToCard(meal);
+			Thread.sleep(500);
+			driver.get(meal);
+			mealPage.addToCard("5");
 			softAssert.assertTrue(notifiSP.getMessageForSucefullyAddToCard().getText().contains("Meal Added To Cart"));
-			
 		}	
+		
+		Thread.sleep(500);
+		cartSummary.cleearAll();
+		softAssert.assertTrue(notifiSP.getMessagee().getText().contains("All meals removed from Cart successfully"));
 		
 		
 	}
