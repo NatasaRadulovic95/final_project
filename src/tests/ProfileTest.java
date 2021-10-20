@@ -59,17 +59,10 @@ public class ProfileTest extends BaseTest {
 		softAssert.assertTrue(notifiSP.getMessagee().getText().contains("Profile Image Uploaded Successfully"));
 		wdWait.until(ExpectedConditions.invisibilityOf(notifiSP.getMessage()));
 		profilePage.removePhoto();
+		softAssert.assertTrue(notifiSP.getMessagee().getText().contains("Profile Image Deleted Successfully"));
+		wdWait.until(ExpectedConditions.invisibilityOf(notifiSP.getMessage()));
+		
 
-
-
-
-
-
-
-//		verifikujte da je prikazana poruka sa tekstom "Profile Image Deleted Successfully"
-//		sačekajte da nestane obaveštenje
-//		odjavite se sa sajta
-//		verifikujte da je prikazana poruka sa tekstom "Logout Successfull!"
 
 	}
 
