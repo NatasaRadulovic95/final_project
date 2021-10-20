@@ -16,7 +16,7 @@ import org.testng.asserts.SoftAssert;
 
 public class MealItemTest extends BaseTest {
 
-	@Test
+//	@Test
 	public void addMealToCardTest() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://demo.yo-meals.com/meal/lobster-shrimp-chicken-quesadilla-combo");
@@ -33,7 +33,7 @@ public class MealItemTest extends BaseTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void addMealToFavourite() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://demo.yo-meals.com/meal/lobster-shrimp-chicken-quesadilla-combo");

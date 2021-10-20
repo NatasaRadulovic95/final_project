@@ -9,6 +9,7 @@ package tests;
 //sve ostale test klase nasleđuju ovu klasu
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.FileHandler;
 
@@ -75,14 +76,12 @@ abstract class BaseTest {
 	}
 	
 	@AfterMethod
-	public void afterMethod(ITestResult result) throws InterruptedException {
+	public void afterMethod(ITestResult result) throws InterruptedException, IOException {
 		
-		if(result.FAILURE == result.getStatus()) {
-			TakesScreenshot scrShot =((TakesScreenshot)driver);
-			File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-			
+			helper.screenshot(driver);
+			Thread.sleep(1000);
 			
 		}
 	}
 	
-}
+

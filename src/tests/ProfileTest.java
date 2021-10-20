@@ -24,7 +24,7 @@ import pages.ProfilePage;
 
 public class ProfileTest extends BaseTest {
 
-//	@Test
+	@Test
 	public void editProfileTest() throws InterruptedException, AWTException {
 
 		SoftAssert softAssert = new SoftAssert();
@@ -65,7 +65,7 @@ public class ProfileTest extends BaseTest {
 
 
 
-//		obrišite profilnu sliku
+
 //		verifikujte da je prikazana poruka sa tekstom "Profile Image Deleted Successfully"
 //		sačekajte da nestane obaveštenje
 //		odjavite se sa sajta
